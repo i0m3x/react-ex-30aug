@@ -1,19 +1,31 @@
 import React from 'react'
 
-export const Ninjas = ({ninjas}) => {
-    const ninjaList = ninjas.map(ninja => {
-        return (
-            <div className ="ninja" key={ninja.id}>
-            <div>Name: { ninja.name }
-            </div>
-            <div>Age: { ninja.age }</div>
-            <div>Belt: { ninja.belt } </div>
-            </div>
-        )
-    })
+// export const Ninjas = ({ninjas}) => {
+//     const ninjaList = ninjas.map(ninja => {
+//         return (
+//             <div className ="ninja" key={ninja.id}>
+//             <div>Name: { ninja.name }
+//             </div>
+//             <div>Age: { ninja.age }</div>
+//             <div>Belt: { ninja.belt } </div>
+//             </div>
+//         )
+//     })
+const Ninjas = ({ninjas}) => {
     return (
         <div className="ninja-list">
-            { ninjaList }
-        </div>
+            { 
+                ninjas.map(ninja => {
+                    return ninja.age > 20 ? (
+                        <div className="ninja" key={ninja.id}>
+                        <div>Name: { ninja.name } </div>
+                        <div>Age: { ninja.age } </div>
+                        <div>Belt: { ninja.belt } </div>
+                        </div>
+                    ) : null;
+                })
+            }
+            </div>
     )
 }
+export default Ninjas
